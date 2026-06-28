@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [message, setMessage] = useState('');
   const supabase = createClient();
 
-  // ── Drawing canvas (same pencil engine) ──────────────────────────────────
+  //drawing canvas setup
   useEffect(() => {
     const canvas = canvas_ref.current;
     if (!canvas) return;
@@ -134,7 +134,7 @@ export default function LoginPage() {
     };
   }, []);
 
-  // ── Auth handlers ────────────────────────────────────────────────────────
+  // auth
   async function handleEmailLogin() {
     if (!email) return;
     setLoading(true);
@@ -178,7 +178,7 @@ export default function LoginPage() {
           font-family: 'Quicksand', sans-serif;
         }
 
-        /* Full-page drawing canvas — sits above bg, below UI */
+        /* the drawing canvas */
         .draw-canvas {
           position: fixed;
           inset: 0;
@@ -189,7 +189,7 @@ export default function LoginPage() {
           pointer-events: all;
         }
 
-        /* Dot grid — pure CSS, matches canvas spacing */
+        /* grid specifications */
         .dots-bg {
           position: fixed;
           inset: 0;
@@ -200,7 +200,7 @@ export default function LoginPage() {
           z-index: 0;
         }
 
-        /* Title sits above canvas; plain bg patch behind it */
+        /* title specifications*/
         .margin-title-wrap {
           position: relative;
           z-index: 10;
@@ -220,7 +220,7 @@ export default function LoginPage() {
           white-space: nowrap;
         }
 
-        /* Card sits on top of canvas — pointer-events let drawing happen around it */
+        /*login card specifications*/
         .login-card {
           position: relative;
           z-index: 10;
@@ -344,15 +344,15 @@ export default function LoginPage() {
       <main className="login-root">
         <div className="dots-bg" />
 
-        {/* Drawing canvas — full page, behind UI */}
+        {/* drawing canvas  */}
         <canvas ref={canvas_ref} className="draw-canvas" />
 
-        {/* MARGIN heading with plain background patch */}
+        {/* MARGIN heading  */}
         <div className="margin-title-wrap">
           <h1 className="margin-title">MARGIN</h1>
         </div>
 
-        {/* Login card */}
+        {/* login card */}
         <div className="login-card">
           <p className="login-heading">
             <strong>Login</strong> in with
